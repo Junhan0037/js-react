@@ -1,5 +1,5 @@
 import UserList from "./UserList";
-import {useRef, useState, useMemo} from 'react';
+import {useRef, useState, useMemo, useCallback} from 'react';
 import CreateUser from "./CreateUser";
 
 function CountActiveUsers(users) {
@@ -14,13 +14,13 @@ function App() {
     });
     const {username, email} = inputs;
 
-    const onChange = e => {
+    const onChange = useCallback(e => {
         const {name, value} = e.target;
         setInputs({
             ...inputs,
             [name]: value,
         });
-    };
+    }, [inputs]);
 
     const [users, setUsers] = useState([
         {
@@ -45,7 +45,7 @@ function App() {
 
     const nextId = useRef(4); // 컴포넌트안의 기억되는 변수 (변수가 바뀐다고해서 리랜더링 X)
 
-    const onCreate = () => {
+    const onCreate = useCallback( () => {
         const user = {
             id: nextId.current,
             username,
@@ -59,18 +59,18 @@ function App() {
         });
 
         nextId.current += 1;
-    };
+    }, [username, email, users]);
 
-    const onRemove = id => {
+    const onRemove = useCallback( id => {
         setUsers(users.filter(user => user.id !== id)); // id와 다르면 false를 반환하며 제거 (제거 기능에서는 기존의 배열 복사 필요 X)
-    };
+    }, [users]);
 
-    const onToggle = id => {
+    const onToggle = useCallback( id => {
         setUsers(users.map(user => user.id === id
         ? {...user, active: !user.active}
         : user
         ))
-    };
+    }, [users]);
 
     const count = useMemo(() => CountActiveUsers(users), [users]); // users가 바뀔 때만 호출 (성능 최적화)
 
