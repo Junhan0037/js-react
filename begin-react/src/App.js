@@ -21,16 +21,19 @@ function App() {
             id: 1,
             username: 'abc',
             email: 'public.abc@gmail.com',
+            active: true,
         },
         {
             id: 2,
             username: 'def',
             email: 'public.def@gmail.com',
+            active: false,
         },
         {
             id: 3,
             username: 'ghi',
             email: 'public.ghi@gmail.com',
+            active: false,
         },
     ]);
 
@@ -56,10 +59,17 @@ function App() {
         setUsers(users.filter(user => user.id !== id)); // id와 다르면 false를 반환하며 제거 (제거 기능에서는 기존의 배열 복사 필요 X)
     };
 
+    const onToggle = id => {
+        setUsers(users.map(user => user.id === id
+        ? {...user, active: !user.active}
+        : user
+        ))
+    };
+
     return (
         <>
             <CreateUser username={username} email={email} onChange={onChange} onCreate={onCreate} />
-            <UserList users={users} onRemove={onRemove} />
+            <UserList users={users} onRemove={onRemove} onToggle={onToggle} />
         </>
     );
 }
