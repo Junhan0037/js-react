@@ -51,26 +51,26 @@ function App() {
             username,
             email
         };
-        setUsers([...users, user]); // 기존의 users를 복사해서 새항목 추가
-        // setUsers(users.concat(user)); // 위와 같은 기능
+        // setUsers([...users, user]); // 기존의 users를 복사해서 새항목 추가
+        setUsers(users => users.concat(user)); // 위와 같은 기능
         setInputs({
             username: '',
             email: '',
         });
 
         nextId.current += 1;
-    }, [username, email, users]);
+    }, [username, email]);
 
     const onRemove = useCallback( id => {
-        setUsers(users.filter(user => user.id !== id)); // id와 다르면 false를 반환하며 제거 (제거 기능에서는 기존의 배열 복사 필요 X)
-    }, [users]);
+        setUsers(users => users.filter(user => user.id !== id)); // id와 다르면 false를 반환하며 제거 (제거 기능에서는 기존의 배열 복사 필요 X)
+    }, []);
 
     const onToggle = useCallback( id => {
-        setUsers(users.map(user => user.id === id
+        setUsers(users => users.map(user => user.id === id
         ? {...user, active: !user.active}
         : user
         ))
-    }, [users]);
+    }, []);
 
     const count = useMemo(() => CountActiveUsers(users), [users]); // users가 바뀔 때만 호출 (성능 최적화)
 
