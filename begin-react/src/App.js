@@ -61,7 +61,7 @@ function App() {
         nextId.current += 1;
     }, [username, email]);
 
-    const onRemove = useCallback( id => {
+    const onRemove = useCallback( id => { // useCallback : 함수 재사용
         setUsers(users => users.filter(user => user.id !== id)); // id와 다르면 false를 반환하며 제거 (제거 기능에서는 기존의 배열 복사 필요 X)
     }, []);
 
@@ -72,7 +72,7 @@ function App() {
         ))
     }, []);
 
-    const count = useMemo(() => CountActiveUsers(users), [users]); // users가 바뀔 때만 호출 (성능 최적화)
+    const count = useMemo(() => CountActiveUsers(users), [users]); // useMemo : users가 바뀔 때만 호출 (성능 최적화)
 
     return (
         <>

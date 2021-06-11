@@ -1,13 +1,30 @@
-import React, {useState} from 'react';
+import React, {useReducer} from 'react';
+
+function reducer(state, action) {
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1; // 상태 업데이트 로직이 컴포넌트 밖에 있다.
+        case 'DECREMENT':
+            return state - 1;
+        default:
+            throw new Error('Unhandled action');
+    }
+}
 
 function Counter() {
-    const [number, setNumber] = useState(0);
+
+    const [number, dispatch] = useReducer(reducer, 0);
+
 
     const onIncrease = () => {
-        setNumber(prevNumber => prevNumber + 1); // number + 1 와 기능은 같으나 최적화 되어있다. (함수형 업데이트)
+        dispatch({
+            type: 'INCREMENT'
+        });
     };
     const onDecrease = () => {
-        setNumber(prevNumber => prevNumber - 1);
+        dispatch({
+            type: 'DECREMENT'
+        });
     };
 
     return (
