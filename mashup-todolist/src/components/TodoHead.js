@@ -30,7 +30,7 @@ function TodoHead() {
             <div className="day">화요일</div>
             <div className="task-left">할 일 2개 남음</div>
         </TodoHeadBlock>
-    )
+    );
 }
 
 export default TodoHead;
