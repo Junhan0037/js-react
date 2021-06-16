@@ -25,7 +25,7 @@ function reducer(state, action) {
     }
 }
 
-function useAsync(callback, deps = [], skip = false) {
+function useAsync(callback, deps = [], skip = false) { // 커스터마이징 Hook
     const [state, dispatch] = useReducer(reducer, {
         loading: false,
         data: null,
