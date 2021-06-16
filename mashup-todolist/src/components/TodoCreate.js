@@ -79,14 +79,14 @@ const Input = styled.input`
 function TodoCreate() {
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState('');
-    const dispath = useTodoDispatch();
+    const dispatch = useTodoDispatch();
     const nextId = useTodoNextId();
 
     const onToggle = () => setOpen(!open);
-    const onChange = (e) => setValue(e.target.value);
+    const onChange = (e) => setValue(e.target.value); // 내용이 바뀔때마다 value 변경
     const onSubmit = e => {
-        e.preventDefault();
-        dispath({
+        e.preventDefault(); // 자동 새로고침 방지
+        dispatch({
             type: 'CREATE',
             todo: {
                 id: nextId.current,
