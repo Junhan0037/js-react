@@ -1,4 +1,5 @@
 import React from "react";
+import WithRouterSample from "./WithRouterSample";
 
 const profileData = {
   velopert: {
@@ -25,6 +26,7 @@ function Profile({match}) { // match: Route에서 내려주는 파라미터를 �
       <p>
         {profile.description}
       </p>
+      <WithRouterSample />
     </div>
   );
 }
