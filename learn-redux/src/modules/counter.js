@@ -1,4 +1,4 @@
-const SET_DIFF = 'counter/SER_DIFF'; // 이름 중복을 방지하기 위해 prefix 삽입
+const SET_DIFF = 'counter/SET_DIFF'; // 이름 중복을 방지하기 위해 prefix 삽입
 const INCREASE = 'counter/INCREASE';
 const DECREASE = 'counter/DECREASE';
 

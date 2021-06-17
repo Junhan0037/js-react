@@ -71,5 +71,5 @@ store.dispatch(decrease());
 store.dispatch(changeText('안녕하세요'));
 store.dispatch(addToList({id: 1, text: '와우!'}));
 
-window.store = store; // console에서 store 사
+window.store = store; // console에서 store 사용
 
