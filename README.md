@@ -18,3 +18,7 @@ TODO LIST 개발
 ## [router-tutorial](https://github.com/Junhan0037/js-react/tree/master/router-tutorial)
 
 리액트 Router
+
+## [learn-redux](https://github.com/Junhan0037/js-react/tree/master/learn-redux)
+
+리액트 Redux
