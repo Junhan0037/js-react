@@ -58,7 +58,7 @@ export const reducerUtils = {
   }),
   success: (data) => ({
     data,
-    loading: true,
+    loading: false,
     error: null,
   }),
   error: (error) => ({
