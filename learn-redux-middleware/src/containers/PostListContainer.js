@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {getPosts} from "../modules/posts";
 import PostList from "../components/PostList";
 
@@ -11,7 +11,7 @@ function PostListContainer() {
     dispatch(getPosts());
   }, [dispatch]);
 
-  if (loading) return <div>로딩중...</div>;
+  if (loading && !data) return <div>로딩중...</div>;
   if (error) return <div>에러 발생!</div>;
   if (!data) return null;
 
