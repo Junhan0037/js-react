@@ -4,7 +4,7 @@ import {getPosts} from "../modules/posts";
 import PostList from "../components/PostList";
 
 function PostListContainer() {
-  const {data, loading, error} = useSelector(state => state.posts.posts);
+  const {data, loading, error} = useSelector(state => state.posts.posts); // posts Reducer의 posts initialState
   const dispatch = useDispatch();
 
   useEffect(() => {
