@@ -35,3 +35,7 @@ TODO LIST 개발
 ## [ts-react-redux-tutorial](https://github.com/Junhan0037/js-react/tree/master/ts-react-redux-tutorial)
 
 타입스크립트 - 리덕스
+
+## [prototype-shop](https://github.com/Junhan0037/js-react/tree/master/prototype-shop)
+
+React 쇼핑몰 프로젝트
